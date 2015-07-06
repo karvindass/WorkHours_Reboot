@@ -2,10 +2,9 @@
 foreach ($projects as $project)
 {
     echo "<blockquote>";
-    echo '<h1>' . $project['title'] . '</h1>';
-    echo '<b>  Starting on: </b>' . $project['startdate'] . '<br>';
-    echo '<b>  Client: </b>' . $project['client'] . '<br>';
-
+    echo '<h3>' . $project['title'] . '</h1>';
+    echo '<strong>  Starting on: </strong>' . $project['startdate'] . '<br>';
+    echo '<strong>  Client: </strong>' . $project['client'] . '<br>';
     echo "<br> </blockquote>";
 }
 ?>
