@@ -62,46 +62,49 @@
             </div>
         </div>
         <div class="col-md-4">
-            <form>
+            <form method="POST">
                 <div class="form-group">
                     <label for="projectTitle">Project Title</label>
-                    <input type="email" class="form-control" id="projectTitle" placeholder="e.g. Renovation Work on Paragon Building">
+                    <input type="text" class="form-control" id="projectTitle" name="projectTitle" 
+                           placeholder="e.g. Renovation Work">
                 </div>
                 <div class="form-group">
                     <label for="clientID">Client ID</label>
-                    <select class="form-control" id="ClientID">
+                    <select class="form-control" id="clientID" name="clientID">
                         <option>ICE</option>
                         <option>NDY - Adelaide</option>
                         <option>NDY - Brisbane</option>
                         <option>NDY - Melbourne</option>
                         <option>NDY - Sydney</option>
-                        <option> ------------------- </option>
+                        <option disabled>------------------- </option>
                         <option>NDY - London</option>
                         <option>NDY - Singapore</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="payOrder">Pay Order</label>
-                    <input type="text" class="form-control" id="payOrder" placeholder="Email">
+                    <input type="text" class="form-control" id="payOrder" name="payOrder" placeholder="e.g. 90210">
                 </div>
                 <div class="form-group">
-                    <label for="projectTitle">Start Date</label>
-                    <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" class="form-control" id="startDate" name="startDate">
                 </div>
                 <div class="form-group">
-                    <label for="projectTitle">Deadline</label>
-                    <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                    <label for="endDate">Deadline (Please make sure this occurs on or after the Start Date)</label>
+                    <input type="date" class="form-control" id="endDate" name="endDate">
                 </div>
                 <div class="form-group">
-                    <label for="projectTitle">Workhours Required</label>
-                    <input type="number" class="form-control" min="0" step="5" id="sumWH" placeholder="e.g. 215">
+                    <label for="sumWH">Workhours Required</label>
+                    <input type="number" class="form-control" min="0" id="sumWH" name="sumWH" placeholder="e.g. 215">
                 </div>
                 <div class="form-group">
-                    <label for="projectTitle">Comments/Description</label>
-                    <textarea class="form-control" id="exampleInputEmail1" placeholder="e.g. Timeline, Progress,Specifications"></textarea>
+                    <label for="comments">Comments/Description</label>
+                    <textarea class="form-control" id="comments" name="comments" placeholder="e.g. Timeline, Progress,Specifications"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" style="float: right;">Submit</button>
+                <input type="submit" name="submit" value="Add Project" class="btn btn-primary" style="float: right;">
             </form>
-
+            <?php
+            include '../scripts/addProject.php';
+            ?>
         </div>
 </body>
