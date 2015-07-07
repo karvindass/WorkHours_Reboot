@@ -56,11 +56,8 @@
     <div class="row">
         <div class="col-md-2"
     <ul class="list-group">
-        <li class="list-group-item active">
-            <span class="badge">3</span>
-            Home View
-        </li>
-        <a href="../Dashboard/table" class="list-group-item">Project Table</a>
+        <a href="../" class="list-group-item">Home View</a>
+        <a href="#" class="list-group-item active">Project Table</a>
         <li class="list-group-item">
             <span class="badge">1</span>
             View 3
@@ -68,23 +65,36 @@
     </ul>
     </div>
         <div class="col-md-6">
-            
-    <?php
-    include 'scripts/connectdb.php';
-    $query = 'SELECT * FROM projects LIMIT 5';
-    $result = mysqli_query($link, $query);
-    if (!$result) {
-        $error = 'Error fetching projects:' . mysqli_error($link);
-        echo $error;
-    }
+            <div class="panel panel-default">
+                <div class="panel-heading">List of all Projects</div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Project Name</th>
+                            <th>Client ID</th>
+                            <th>Total Workhours</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        include '../scripts/connectdb.php';
+                        $query = 'SELECT * FROM projects';
+                        $result = mysqli_query($link, $query);
+                        if (!$result) {
+                            $error = 'Error fetching projects:' . mysqli_error($link);
+                            echo $error;
+                        }
 
-    while ($row = mysqli_fetch_array($result)) {
-        $projects[] = array('title' => $row['title'], 'startdate' => $row['startdate'], 'id' => $row['id'],
-            'client' => $row['clientid']);
-    }
+                        while ($row = mysqli_fetch_array($result)) {
+                            $projects[] = array('title' => $row['title'], 'startdate' => $row['startdate'], 'id' => $row['id'],
+                                'client' => $row['clientid'], 'sumwh' => $row['sumwh']);
+                        }
 
-    include 'scripts/printprojects.html.php';
-    ?>
+                        include '../scripts/printgeneraltable.html.php';
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         
     </div>
 </body>
