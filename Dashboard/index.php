@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <head>
     <title>Project Reboot - Landing Page</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- jQuery link -->
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <!-- Bootstrap Links -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <!-- Bootstrap theme -->
-        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css" rel="stylesheet" />
-        <!-- Link to Theme: https://bootswatch.com/paper/ -->
-        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery link -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap Links -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Bootstrap theme -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css" rel="stylesheet" />
+    <!-- Link to Theme: https://bootswatch.com/paper/ -->
+
 </head>
 <body>
     <nav class="navbar navbar-inverse">
@@ -54,37 +54,31 @@
         </div>
     </nav>
     <div class="row">
-        <div class="col-md-2"
-    <ul class="list-group">
-        <li class="list-group-item active">
-            <span class="badge">3</span>
-            Home View
-        </li>
-        <a href="../Dashboard/table" class="list-group-item">Project Table</a>
-        <li class="list-group-item">
-            <span class="badge">1</span>
-            View 3
-        </li>
-    </ul>
-    </div>
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="" class="list-group-item active">Home View</a>
+                <a href="../Dashboard/table" class="list-group-item">Project Table</a>
+                <a href="../Dashboard/add" class="list-group-item">Add Project</a>
+            </div>
+        </div>
         <div class="col-md-6">
-            
-    <?php
-    include 'scripts/connectdb.php';
-    $query = 'SELECT * FROM projects LIMIT 5';
-    $result = mysqli_query($link, $query);
-    if (!$result) {
-        $error = 'Error fetching projects:' . mysqli_error($link);
-        echo $error;
-    }
 
-    while ($row = mysqli_fetch_array($result)) {
-        $projects[] = array('title' => $row['title'], 'startdate' => $row['startdate'], 'id' => $row['id'],
-            'client' => $row['clientid']);
-    }
+            <?php
+            include 'scripts/connectdb.php';
+            $query = 'SELECT * FROM projects LIMIT 5';
+            $result = mysqli_query($link, $query);
+            if (!$result) {
+                $error = 'Error fetching projects:' . mysqli_error($link);
+                echo $error;
+            }
 
-    include 'scripts/printprojects.html.php';
-    ?>
-        
-    </div>
+            while ($row = mysqli_fetch_array($result)) {
+                $projects[] = array('title' => $row['title'], 'startdate' => $row['startdate'], 'id' => $row['id'],
+                    'client' => $row['clientid']);
+            }
+
+            include 'scripts/printprojects.html.php';
+            ?>
+
+        </div>
 </body>
