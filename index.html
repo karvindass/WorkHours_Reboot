@@ -13,46 +13,53 @@ and open the template in the editor.
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
 
-	<link href='http://fonts.googleapis.com/css?family=Abel|Open+Sans:400,600' rel='stylesheet'>
+        <link href='http://fonts.googleapis.com/css?family=Abel|Open+Sans:400,600' rel='stylesheet'>
 
-        
         <style>
             html {
-                background: "images/simple-background-12.jpg" no-repeat center center fixed; 
+                background: url(images/background-1.jpg) no-repeat center center fixed; 
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
                 background-size: cover;
-                }
+            }
+
             body {
                 padding-top: 20px;
                 font-size: 16px;
                 font-family: "Open Sans",serif;
+                background: transparent;
             }
+
             h1 {
                 font-family: "Abel", Arial, sans-serif;
                 font-weight: 400;
                 font-size: 40px;
             }
+
+            /* Override B3 .panel adding a subtly transparent background */
             .panel {
                 background-color: rgba(255, 255, 255, 0.9);
+            }
+
             .margin-base-vertical {
                 margin: 40px 0;
             }
         </style>
     </head>
     <body>
+        <!-- <br><br><br><br><br><br><br><br><br> -->
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-md-offset-3 panel panel-default">
+                <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-3 panel panel-default">
 
-                    <h1 class="margin-base-vertical">Have you ever seen the rain?</h1>
-                    <p>Someone told me long ago there's a calm before the storm. I know, It's been comin for some time.
-                    </p>
-                    <p>When it's over, so they say, it'll rain a sunny day. I know, Shinin down like water.
-                    </p>
-                    <p>I want to know, have you ever seen the rain?
-                    </p>
+                    <h1 class="margin-base-vertical">Do you follow your plans?</h1>
+                    <p>He who every morning plans the transaction of the day and follows out that plan,
+                        carries a thread that will guide him through the maze of the most busy life.</p> 
+                    <p>But where no plan is laid, where the disposal of time is surrendered merely 
+                        to the chance of incidence, chaos will soon reign.</p>
+                    <p class="lead" align="right"><em>Victor Hugo</em></p>
+                    <br><br><br>
                     <p>Sign up to get notified when this project finally comes online</p>
                     <form action="/mailing-list" method="post">
                         <p class="input-group">
