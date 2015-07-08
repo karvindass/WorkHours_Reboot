@@ -56,9 +56,9 @@
     <div class="row">
         <div class="col-md-2">
             <div class="list-group">
-                <a href="" class="list-group-item active">Home View</a>
-                <a href="../Dashboard/table" class="list-group-item">Project Table</a>
-                <a href="../Dashboard/add" class="list-group-item">Add Project</a>
+                <a href="#" class="list-group-item active">Next Few Days</a>
+                <a href="" class="list-group-item">View 2</a>
+                <a href="" class="list-group-item">View 3</a>
             </div>
         </div>
         <div class="col-md-6">
