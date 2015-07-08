@@ -12,6 +12,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css" rel="stylesheet" />
     <!-- Link to Theme: https://bootswatch.com/paper/ -->
 
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
 </head>
 <body>
     <nav class="navbar navbar-inverse">
@@ -89,5 +92,32 @@
                     </tbody>
                 </table>
             </div>
+            <canvas id="canvas"></canvas>
+            <script>
+                var dData = function () {
+                    return Math.round(Math.random() * 90) + 10
+                };
+
+                var barChartData = {
+                    labels: ["dD 1", "dD 2", "dD 3", "dD 4", "dD 5", "dD 6", "dD 7", "dD 8", "dD 9", "dD 10"],
+                    datasets: [{
+                            fillColor: "rgba(0,60,100,1)",
+                            strokeColor: "black",
+                            data: [dData(), dData(), dData(), dData(), dData(), dData(), dData(), dData(), dData(), dData()]
+                        }]
+                }
+
+                var index = 11;
+                var ctx = document.getElementById("canvas").getContext("2d");
+                var barChartDemo = new Chart(ctx).Bar(barChartData, {
+                    responsive: true,
+                    barValueSpacing: 2
+                });
+                setInterval(function () {
+                    barChartDemo.removeData();
+                    barChartDemo.addData([dData()], "dD " + index);
+                    index++;
+                }, 3000);
+            </script>
         </div>
     </div>
