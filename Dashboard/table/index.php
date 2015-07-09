@@ -61,14 +61,17 @@
                 <a href="../add" class="list-group-item">Add Project</a>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="panel panel-default">
-                <div class="panel-heading">List of all Projects</div>
+                <div class="panel-heading">Recorded Projects</div>
                 <table class="table table-hover">
                     <thead>
                         <tr>
                             <th>Project Name</th>
                             <th>Client ID</th>
+                            <th>Starting Date</th>
+                            <th>Daily Workhours</th>
+                            <th>Deadline</th>
                             <th>Total Workhours</th>
                         </tr>
                     </thead>
@@ -83,8 +86,10 @@
                         }
 
                         while ($row = mysqli_fetch_array($result)) {
-                            $projects[] = array('title' => $row['title'], 'startdate' => $row['startdate'], 'id' => $row['id'],
-                                'client' => $row['clientid'], 'sumwh' => $row['sumwh']);
+                            $projects[] = array('id' => $row['id'], 'title' => $row['title'],
+                                'startdate' => $row['startdate'], 'enddate' => $row['enddate'],
+                                'client' => $row['clientid'], 'sumwh' => $row['sumwh'],
+                                'whperday' => $row['whperday']);
                         }
 
                         include '../scripts/printgeneraltable.html.php';
