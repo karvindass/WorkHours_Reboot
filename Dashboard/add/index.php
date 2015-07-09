@@ -54,63 +54,69 @@
         </div>
     </nav>
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-2 col-xs-12">
             <div class="list-group">
                 <a href="../" class="list-group-item">Home View</a>
                 <a href="../table" class="list-group-item">Project Table</a>
                 <a href="" class="list-group-item active">Add Project</a>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-12">
             <div class="well well-lg">
                 <h2>Project Input Form</h2>
                 <br>
-            <form method="POST">
-                <div class="form-group">
-                    <label for="projectTitle">Project Title</label>
-                    <input type="text" class="form-control" id="projectTitle" name="projectTitle" 
-                           placeholder="e.g. Renovation Work">
-                </div>
-                <div class="form-group">
-                    <label for="clientID">Client ID</label>
-                    <select class="form-control" id="clientID" name="clientID">
-                        <option>ICE</option>
-                        <option>NDY - Adelaide</option>
-                        <option>NDY - Brisbane</option>
-                        <option>NDY - Melbourne</option>
-                        <option>NDY - Sydney</option>
-                        <option disabled>------------------- </option>
-                        <option>NDY - London</option>
-                        <option>NDY - Singapore</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="payOrder">Pay Order</label>
-                    <input type="text" class="form-control" id="payOrder" name="payOrder" placeholder="e.g. 90210">
-                </div>
-                <div class="form-group">
-                    <label for="startDate">Start Date</label>
-                    <input type="date" class="form-control" id="startDate" name="startDate">
-                </div>
-                <div class="form-group">
-                    <label for="endDate">Deadline (Please make sure this occurs on or after the Start Date)</label>
-                    <input type="date" class="form-control" id="endDate" name="endDate">
-                </div>
-                <div class="form-group">
-                    <label for="sumWH">Workhours Required</label>
-                    <input type="number" class="form-control" min="0" id="sumWH" name="sumWH" placeholder="e.g. 215">
-                </div>
-                <div class="form-group">
-                    <label for="comments">Comments/Description</label>
-                    <textarea class="form-control" id="comments" name="comments" placeholder="e.g. Timeline, Progress,Specifications"></textarea>
-                </div>
-                <input type="submit" name="submit" value="Add Project" class="btn btn-primary pull-right">
-            </form>
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="projectTitle">Project Title</label>
+                        <input type="text" class="form-control" id="projectTitle" name="projectTitle" 
+                               placeholder="e.g. Renovation Work" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="clientID">Client ID</label>
+                        <select class="form-control" id="clientID" name="clientID">
+                            <option>ICE</option>
+                            <option disabled>------------------- </option>
+                            <option>NDY - Adelaide</option>
+                            <option>NDY - Brisbane</option>
+                            <option>NDY - Melbourne</option>
+                            <option>NDY - Sydney</option>
+                            <option disabled>------------------- </option>
+                            <option>NDY - London</option>
+                            <option>NDY - Singapore</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="payOrder">Pay Order</label>
+                        <input type="text" class="form-control" id="payOrder" name="payOrder" placeholder="e.g. 90210">
+                    </div>
+                    <div class="form-group">
+                        <label for="startDate">Start Date</label>
+                        <input type="date" class="form-control" id="startDate" name="startDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="endDate">Deadline (Please make sure this occurs on or after the Start Date)</label>
+                        <input type="date" class="form-control" id="endDate" name="endDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="sumWH">Workhours Required</label>
+                        <input type="number" class="form-control" min="0" id="sumWH" name="sumWH" placeholder="e.g. 215">
+                    </div>
+                    <div class="form-group">
+                        <label for="comments">Comments/Description</label>
+                        <textarea class="form-control" id="comments" name="comments" placeholder="e.g. Timeline, Progress,Specifications"></textarea>
+                    </div>
+                    <input type="submit" name="submit" value="Add Project" class="btn btn-primary pull-right">
+                </form>
                 <br>
-                <br>
+                <?php
+                include '../scripts/addProject.php';
+                ?>
+            </div>
             <?php
-            include '../scripts/addProject.php';
+            if (isset($notepop)) {
+                echo $notepop;
+            }
             ?>
         </div>
-        </div>
+    </div>
 </body>
