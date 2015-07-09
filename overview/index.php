@@ -59,8 +59,8 @@
     <div class="row">
         <div class="col-md-2">
             <div class="list-group">
-                <a href="#" class="list-group-item active">Ticker</a>
-                <a href="" class="list-group-item">Let's Get Statistical</a>
+                <a href="#" class="list-group-item active">Next Few Days</a>
+                <a href="" class="list-group-item">View 2</a>
                 <a href="" class="list-group-item">View 3</a>
             </div>
         </div>

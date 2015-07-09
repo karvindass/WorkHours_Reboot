@@ -62,9 +62,6 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="well well-lg">
-                <h2>Project Input Form</h2>
-                <br>
             <form method="POST">
                 <div class="form-group">
                     <label for="projectTitle">Project Title</label>
@@ -104,13 +101,10 @@
                     <label for="comments">Comments/Description</label>
                     <textarea class="form-control" id="comments" name="comments" placeholder="e.g. Timeline, Progress,Specifications"></textarea>
                 </div>
-                <input type="submit" name="submit" value="Add Project" class="btn btn-primary pull-right">
+                <input type="submit" name="submit" value="Add Project" class="btn btn-primary" style="float: right;">
             </form>
-                <br>
-                <br>
             <?php
             include '../scripts/addProject.php';
             ?>
-        </div>
         </div>
 </body>
