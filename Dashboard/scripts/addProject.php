@@ -1,6 +1,6 @@
 <?php
 
-include 'connectdb.php';
+include_once 'connectdb.php';
 
 if (isset($_POST['submit'])) {
     $projectTitle = trim($_POST['projectTitle']);
@@ -27,6 +27,13 @@ if (isset($_POST['submit'])) {
         echo 'Oops, something went wrong :o, check what you entered';
         exit();
     }
-
+    else {
+        echo '<div class="col-xs-6">
+            <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>' . $projectTitle . '</strong> has been successfully added.
+            </div>
+            </div>';
+    }
 }
 ?>
