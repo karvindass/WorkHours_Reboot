@@ -31,4 +31,24 @@ $Day5date->modify('+1 day');
 $Day5date = nextWD($Day5date);
 $Day5 = $Day5date->format("Y-m-d");
 $Day5s = $Day5date->format("D j M, Y");
+
+// Finds gets next day (nextWD() is contained inside
+// Must take in string of format Y-m-d, no return values
+function nextD($datein) {
+    $DayOutdate = new DateTime($datein);
+    $DayOutdate->modify('+1 day');
+    $DayOutdate = nextWD($DayOutdate);
+    $DayOut = $DayOutdate->format("Y-m-d");
+    return $DayOut;
+}
+
+// Finds gets next day (nextWD() is contained inside
+// Must take in string of format Y-m-d, no return values
+function nextDs($datein) {
+    $DayOutdate = new DateTime($datein);
+    $DayOutdate->modify('+1 day');
+    $DayOutdate = nextWD($DayOutdate);
+    $DayOuts = $DayOutdate->format("D j M, Y");
+    return $DayOuts;
+}
 ?>
