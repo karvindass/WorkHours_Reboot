@@ -64,7 +64,7 @@
         <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-heading">Recorded Projects</div>
-                <table class="table table-hover">
+                <table class="table table-hover table-bordered">
                     <thead>
                         <tr>
                             <th>Project Name</th>
