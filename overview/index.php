@@ -59,8 +59,8 @@
     <div class="row">
         <div class="col-md-2">
             <div class="list-group">
-                <a href="#" class="list-group-item active">Next Few Days</a>
-                <a href="" class="list-group-item">View 2</a>
+                <a href="#" class="list-group-item active">Ticker</a>
+                <a href="" class="list-group-item">Breakdown</a>
                 <a href="" class="list-group-item">View 3</a>
             </div>
         </div>
@@ -99,11 +99,29 @@
                 };
 
                 var barChartData = {
-                    labels: ["dD 1", "dD 2", "dD 3", "dD 4", "dD 5", "dD 6", "dD 7", "dD 8", "dD 9", "dD 10"],
+                    labels: ["<?php echo $Day1s; ?>",
+                        "<?php echo nextDs($Day1); $DayOut = nextD($Day1); ?>",
+                        "<?php echo nextDs($DayOut); $DayOut = nextD($DayOut); ?>",
+                        "<?php echo nextDs($DayOut); $DayOut = nextD($DayOut); ?>",
+                        "<?php echo nextDs($DayOut); $DayOut = nextD($DayOut); ?>",
+                        "<?php echo nextDs($DayOut); $DayOut = nextD($DayOut); ?>",
+                        "<?php echo nextDs($DayOut); $DayOut = nextD($DayOut); ?>",
+                        "<?php echo nextDs($DayOut); $DayOut = nextD($DayOut); ?>",
+                        "<?php echo nextDs($DayOut); $DayOut = nextD($DayOut); ?>", 
+                        "<?php echo nextDs($DayOut); ?>"],
                     datasets: [{
                             fillColor: "rgba(0,60,100,1)",
                             strokeColor: "black",
-                            data: [dData(), dData(), dData(), dData(), dData(), dData(), dData(), dData(), dData(), dData()]
+                            data: [<?php echo callHours($Day1); ?>, 
+                                <?php $DayOut = nextD($Day1); echo callHours($DayOut); ?>,
+                                <?php $DayOut = nextD($DayOut); echo callHours($DayOut); ?>,
+                                <?php $DayOut = nextD($DayOut); echo callHours($DayOut); ?>,
+                                <?php $DayOut = nextD($DayOut); echo callHours($DayOut); ?>,
+                                <?php $DayOut = nextD($DayOut); echo callHours($DayOut); ?>,
+                                <?php $DayOut = nextD($DayOut); echo callHours($DayOut); ?>,
+                                <?php $DayOut = nextD($DayOut); echo callHours($DayOut); ?>,
+                                <?php $DayOut = nextD($DayOut); echo callHours($DayOut); ?>,
+                                <?php $DayOut = nextD($DayOut); echo callHours($DayOut); ?>]
                         }]
                 }
 
@@ -113,11 +131,11 @@
                     responsive: true,
                     barValueSpacing: 2
                 });
-                setInterval(function () {
-                    barChartDemo.removeData();
-                    barChartDemo.addData([dData()], "dD " + index);
-                    index++;
-                }, 3000);
-            </script>
+//                setInterval(function () {
+//                    barChartDemo.removeData();
+//                    barChartDemo.addData([dData()], "dD " + index);
+//                    index++;
+//                }, 3000);
+        </script>
         </div>
     </div>
