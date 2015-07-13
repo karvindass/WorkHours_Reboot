@@ -26,10 +26,8 @@ if (isset($_POST['submit'])) {
 
         if ($rows == 1) {
             $_SESSION['login_user'] = $username;
-            echo $_SESSION['login_user'];
             while ($row = mysqli_fetch_array($result)) {
                 $_SESSION['login_firstname'] = $row['firstname'];
-                echo $_SESSION['login)firstname'];
                 $_SESSION['login_lastname'] = $row['lastname'];
             }
              header("Location: ../../Dashboard");
