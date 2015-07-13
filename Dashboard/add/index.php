@@ -14,6 +14,7 @@
 
 </head>
 <body>
+    <?php session_start(); ?>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -105,9 +106,10 @@
                         <label for="comments">Comments/Description</label>
                         <textarea class="form-control" id="comments" name="comments" placeholder="e.g. Timeline, Progress,Specifications"></textarea>
                     </div>
+                    <input type="hidden" id="username" name="username" value="<?php echo $_SESSION['login_user']; ?>" >
                     <input type="submit" name="submit" value="Add Project" class="btn btn-primary pull-right">
                 </form>
-                <br>
+                <br><br>
                 <?php
                 include '../scripts/addProject.php';
                 ?>

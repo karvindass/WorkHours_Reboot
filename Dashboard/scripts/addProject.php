@@ -10,6 +10,7 @@ if (isset($_POST['submit'])) {
     $endDate = $_POST['endDate'];
     $sumWH = $_POST['sumWH'];
     $comments = trim($_POST['comments']);
+    $username = $_POST['username'];
 
     //Maths section
     include 'countWorkDays.php';
@@ -19,10 +20,10 @@ if (isset($_POST['submit'])) {
 
     //Adding Project to Database
     $posting = "INSERT INTO projects "
-            . "(`title`, `startdate`, `enddate`, `clientid`, `sumwh`, `whperday`, `payorder`, `comments`)"
+            . "(`title`, `startdate`, `enddate`, `clientid`, `sumwh`, `whperday`, `payorder`, `comments`, `username`)"
             . " VALUES ('" . $projectTitle . "', '" . $startDate . "', '" . $endDate . "', '"
-            . $clientID . "', '" . $sumWH . "', '" . $dayWH . "', '" . $payOrder . "', '" . $comments . "')";
-
+            . $clientID . "', '" . $sumWH . "', '" . $dayWH . "', '" . $payOrder . "', '"
+            . $comments . "', '" . $username . "')";
     if (!mysqli_query($link, $posting)) {
         $notepop = '<div class="col-xs-6">'
                 . '<div class="alert alert-dismissible alert-danger">'
