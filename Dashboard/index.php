@@ -14,6 +14,7 @@
 
 </head>
 <body>
+    <?php session_start(); ?>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -65,7 +66,8 @@
 
             <?php
             include 'scripts/connectdb.php';
-            $query = 'SELECT * FROM projects LIMIT 5';
+            $query = "SELECT * FROM projects " . "WHERE username='"
+                    . $_SESSION['login_user'] . "' LIMIT 5";
             $result = mysqli_query($link, $query);
             if (!$result) {
                 $error = 'Error fetching projects:' . mysqli_error($link);
