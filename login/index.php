@@ -48,30 +48,24 @@ and open the template in the editor.
         </style>
     </head>
     <body>
-        <!-- <br><br><br><br><br><br><br><br><br> -->
         <div class="container">
             <div class="row">
                 <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-3 panel panel-default">
 
-                    <h1 class="margin-base-vertical">Do you follow your plans?</h1>
-                    <p>He who every morning plans the transaction of the day and follows out that plan,
-                        carries a thread that will guide him through the maze of the most busy life.</p> 
-                    <p>But where no plan is laid, where the disposal of time is surrendered merely 
-                        to the chance of incidence, chaos will soon reign.</p>
-                    <p class="lead" align="right"><em>Victor Hugo</em></p>
-                    <br><br><br>
-                    <p>Sign up to get notified when this project finally comes online</p>
-                    <form action="/mailing-list" method="post">
-                        <p class="input-group">
-                            <span class="input-group-addon">@</span>
-                            <input type="text" class="form-control input-lg" name="email" placeholder="email" /></p>
-                        <p class="help-block text-center"><small>We won't send you spam. Unsubscribe at any time.</small></p>
-                        <p class="text-center"><button type="submit" class="btn btn-success btn-lg">Keep me posted</button>
-                        </p>
-                        </span>
+                    <h1 class="margin-base-vertical">Login to the Page</h1>
+                    <form action="scripts/login.php" method="post">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" placeholder="Email Address">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" placeholder="***********">
+                        </div>
+                        <input name="submit" type="submit" value="Login" class="btn btn-primary">
                     </form>
-                    <p>Otherwise click <a href="Dashboard">here</a> to get to the dashboard</p> or click 
-                    <a href="login">here</a> to login</p>
+                    <br>
+                    <br>
                 </div>
             </div>
         </div>
