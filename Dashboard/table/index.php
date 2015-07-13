@@ -14,6 +14,7 @@
 
 </head>
 <body>
+    <?php session_start(); ?>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -78,7 +79,8 @@
                     <tbody>
                         <?php
                         include '../scripts/connectdb.php';
-                        $query = 'SELECT * FROM projects';
+                        $query = "SELECT * FROM projects WHERE username='"
+                                . $_SESSION['login_user'] . "'";
                         $result = mysqli_query($link, $query);
                         if (!$result) {
                             $error = 'Error fetching projects:' . mysqli_error($link);
