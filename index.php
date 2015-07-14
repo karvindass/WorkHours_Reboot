@@ -10,6 +10,9 @@
     <meta name="author" content="">
 
     <title>Torajo | Project Management and Planning Solution</title>
+    
+    <!-- Icon -->
+    <link rel="shortcut icon" type="image/png" href="favicon.ico">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -240,6 +243,10 @@
             <div class="call-to-action">
                 <h2>Follow the Project as it comes together</h2>
                 <a href="#" class="btn btn-default btn-xl wow tada disabled">Hit up our blog!</a>
+                <br>
+                <br>
+                <p>It seems like the blog isn't ready yet either...but one day in the next few days
+                that button will work.</p>
             </div>
         </div>
     </aside>
@@ -258,7 +265,7 @@
                 </div>-->
                 <div class="col-lg-4 col-lg-offset-4 text-center">
                     <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                    <p><a href="mailto:your-email@your-domain.com">email@notworkingyet.com</a></p>
+                    <p><a href="mailto:karvin@torajo.com">karvin@torajo.com</a></p>
                 </div>
             </div>
         </div>
