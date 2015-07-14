@@ -13,24 +13,30 @@ if (isset($_POST['submit'])) {
 
         include 'connectdb.php';
 
-        $username = stripslashes($username);
-        $password = stripslashes($password);
-        $username = mysql_real_escape_string($username);
-        $password = mysql_real_escape_string($password);
+        $query = "SELECT username, authvalue, firstname, lastname FROM accounts WHERE username=? AND password=?";
+        $stmt = $link->prepare($query);
+        $stmt->bind_param("ss", $val1, $val2);
 
-        $query = "SELECT * FROM accounts WHERE username='" . $username
-                . "' AND password='" . $password . "'";
-        $result = mysqli_query($link, $query);
-        // check if result exists
-        $rows = mysqli_num_rows($result);
+        $val1 = $username;
+        $val2 = $password;
+
+        $stmt->execute();
+        $stmt->store_result();
+
+//        $stmt->bind_result($uname, $aval);
+//        $result = $stmt->get_result();
+        $rows = $stmt->num_rows;
+
+//        check if result exists
+//        $rows = mysqli_num_rows($result);
 
         if ($rows == 1) {
             $_SESSION['login_user'] = $username;
-            while ($row = mysqli_fetch_array($result)) {
-                $_SESSION['login_firstname'] = $row['firstname'];
-                $_SESSION['login_lastname'] = $row['lastname'];
-            }
-             header("Location: ../../Dashboard");
+//            while ($row = mysqli_fetch_array($result)) {
+//                $_SESSION['login_firstname'] = $row['firstname'];
+//                $_SESSION['login_lastname'] = $row['lastname'];
+//            }
+            header("Location: ../../Dashboard");
         } else {
             $error = 'Username or Password is invalid';
         }
