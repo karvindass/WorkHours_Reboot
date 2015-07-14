@@ -79,11 +79,20 @@
                             <option disabled>------------------- </option>
                             <option>NDY - Adelaide</option>
                             <option>NDY - Brisbane</option>
+                            <option>NDY - Canberra</option>
+                            <option>NDY - Darwin</option>
+                            <option>NDY - Gold Coast</option>
                             <option>NDY - Melbourne</option>
+                            <option>NDY - Perth</option>
                             <option>NDY - Sydney</option>
                             <option disabled>------------------- </option>
+                            <option>NDY - Auckland</option>
+                            <option>NDY - Wellington</option>
+                            <option>NDY - Christchurch</option>
+                            <option disabled>------------------- </option>
+                            <option>NDY - Dubai</option>
                             <option>NDY - London</option>
-                            <option>NDY - Singapore</option>
+                            <option>NDY - Kuala Lumpur</option>
                         </select>
                     </div>
                     <div class="form-group">
