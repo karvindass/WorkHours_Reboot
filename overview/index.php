@@ -96,11 +96,11 @@
                 </table>
                 </div>
             </div>
-            <canvas id="canvas"></canvas>
         </div>
         <div class="col-md-5">
             <div class="panel panel-primary">
                 <div class="panel-heading">2 Week Plan</div>
+            <canvas id="chart1"></canvas>
             <script>
                 var dData = function () {
                     return Math.round(Math.random() * 90) + 10
@@ -134,7 +134,7 @@
                 }
 
                 var index = 11;
-                var ctx = document.getElementById("canvas").getContext("2d");
+                var ctx = document.getElementById("chart1").getContext("2d");
                 var barChartDemo = new Chart(ctx).Bar(barChartData, {
                     responsive: true,
                     barValueSpacing: 2
@@ -144,7 +144,7 @@
 //                    barChartDemo.addData([dData()], "dD " + index);
 //                    index++;
 //                }, 3000);
-        </script>
+            </script>
             </div>
         </div>
         <div class="col-md-5">
