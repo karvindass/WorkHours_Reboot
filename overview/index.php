@@ -61,13 +61,15 @@
         <div class="col-md-2">
             <div class="list-group">
                 <a href="#" class="list-group-item active">Ticker</a>
-                <a href="" class="list-group-item">Breakdown</a>
-                <a href="" class="list-group-item">View 3</a>
+                <a href="" class="list-group-item disabled">Breakdown</a>
+                <a href="" class="list-group-item disabled">View 3</a>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="panel panel-default">
+        <div class="col-md-10">
+        <div class="col-md-5">
+            <div class="panel panel-primary">
                 <div class="panel-heading">The next 5 working days</div>
+                <div class="panel-body">
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -92,8 +94,13 @@
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </div>
             <canvas id="canvas"></canvas>
+        </div>
+        <div class="col-md-5">
+            <div class="panel panel-primary">
+                <div class="panel-heading">2 Week Plan</div>
             <script>
                 var dData = function () {
                     return Math.round(Math.random() * 90) + 10
@@ -138,5 +145,43 @@
 //                    index++;
 //                }, 3000);
         </script>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Factbox</div>
+                <div class="panel-body">
+                    <div class="col-xs-6">
+                        <h5>Today's Date</h5>
+                        <p><?php echo $Day1s; ?></p>
+                    </div>
+                    <div class="col-xs-6">
+                        <h5>Today's Workhours</h5>
+                        <p><?php echo callHours($Day1) . " Hours Assigned"; ?></p>
+                    </div>
+                    <div class="col-xs-6">
+                        <h5>Today's Capacity</h5>
+                        <input type="number" min='0' name="" id="">
+                    </div>
+                    <div class="col-xs-6">
+                        <h5>Spare Capacity Today</h5>
+                        <p>Num</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Empty Panel</div>
+                <div class="panel-body">Content Example</div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Empty Panel</div>
+                <div class="panel-body">Content Example</div>
+            </div>
+        </div>
         </div>
     </div>
+</body>
