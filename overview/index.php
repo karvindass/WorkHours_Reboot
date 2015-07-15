@@ -15,6 +15,33 @@
     <!-- Chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 
+    <!-- D3.js -->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    
+    <style>
+        .axis path, .axis line
+        {
+            fill: none;
+            stroke: #777;
+            shape-rendering: crispEdges;
+        }
+        
+        .axis text
+        {
+            font-family: 'Arial';
+            font-size: 13px;
+        }
+        .tick
+        {
+            stroke-dasharray: 1, 2;
+        }
+        .bar
+        {
+            fill: FireBrick;
+        }
+        
+       
+    </style>
 </head>
 <body>
     <?php session_start(); ?>
@@ -172,8 +199,102 @@
         </div>
         <div class="col-md-5">
             <div class="panel panel-primary">
-                <div class="panel-heading">Empty Panel</div>
-                <div class="panel-body">Content Example</div>
+                <div class="panel-heading">1 Month Outlook</div>
+                    <div class="panel-body">
+                        <svg id="visualisation" height="300" width="500"></svg>
+                        <script>
+                    InitChart();
+                    function InitChart() {
+
+                      var barData = [{
+                        'x': "<?php echo $Day1; ?>",
+                        'y': "<?php echo callHours($Day1); ?>"
+                      }, {
+                        'x': "<?php echo $Day2; ?>",
+                        'y': 20
+                      }, {
+                        'x': 40,
+                        'y': 10
+                      }, {
+                        'x': 60,
+                        'y': 40
+                      }, {
+                        'x': 80,
+                        'y': 5
+                      }, {
+                        'x': 100,
+                        'y': 60
+                      }];
+
+                      var vis = d3.select('#visualisation'),
+                        WIDTH = 500,
+                        HEIGHT = 300,
+                        MARGINS = {
+                          top: 20,
+                          right: 20,
+                          bottom: 20,
+                          left: 50
+                        },
+                        xRange = d3.scale.ordinal().rangeRoundBands([MARGINS.left, WIDTH - MARGINS.right], 0.1).domain(barData.map(function (d) {
+                          return d.x;
+                        })),
+
+
+                        yRange = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0,
+                          d3.max(barData, function (d) {
+                            return d.y;
+                          })
+                        ]),
+
+                        xAxis = d3.svg.axis()
+                          .scale(xRange)
+                          .tickSize(5)
+                          .tickSubdivide(true),
+
+                        yAxis = d3.svg.axis()
+                          .scale(yRange)
+                          .tickSize(5)
+                          .orient("left")
+                          .tickSubdivide(true);
+
+
+                      vis.append('svg:g')
+                        .attr('class', 'x axis')
+                        .attr('transform', 'translate(0,' + (HEIGHT - MARGINS.bottom) + ')')
+                        .call(xAxis);
+
+                      vis.append('svg:g')
+                        .attr('class', 'y axis')
+                        .attr('transform', 'translate(' + (MARGINS.left) + ',0)')
+                        .call(yAxis);
+
+                      vis.selectAll('rect')
+                        .data(barData)
+                        .enter()
+                        .append('rect')
+                        .attr('x', function (d) {
+                          return xRange(d.x);
+                        })
+                        .attr('y', function (d) {
+                          return yRange(d.y);
+                        })
+                        .attr('width', xRange.rangeBand())
+                        .attr('height', function (d) {
+                          return ((HEIGHT - MARGINS.bottom) - yRange(d.y));
+                        })
+                        .attr('fill', 'grey')
+                        .on('mouseover',function(d){
+                          d3.select(this)
+                            .attr('fill','blue');
+                        })
+                        .on('mouseout',function(d){
+                          d3.select(this)
+                            .attr('fill','grey');
+                        });
+
+                    };
+                        </script>
+                </div>
             </div>
         </div>
         <div class="col-md-5">
