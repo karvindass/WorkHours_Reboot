@@ -6,7 +6,7 @@ function callHours($callDate) {
             . "AS daySum "
             . "FROM projects "
             . "WHERE startdate <= '" . $callDate
-            . "' AND enddate >= '" . $callDate . "'";
+            . "' AND enddate >= '" . $callDate . "' AND username = '" . $_SESSION['login_user'] . "'";
 
     $result = mysqli_query($link, $query);
     if (!$result) {
