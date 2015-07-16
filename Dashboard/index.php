@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html>
 <head>
     <title>Torajo - Dashboard</title>
     <meta charset="UTF-8">
@@ -69,9 +68,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Mock up of "Dashboard" Home View</div>
-                <div class="panel-body">
+
             <?php
             include 'scripts/connectdb.php';
             $query = "SELECT * FROM projects " . "WHERE username='"
@@ -89,10 +86,6 @@
 
             include 'scripts/printprojects.html.php';
             ?>
-                </div>
-            </div>
-            
 
         </div>
 </body>
-    </html>
