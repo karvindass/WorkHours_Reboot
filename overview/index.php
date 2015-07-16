@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
     <title>Plan Overview - Torajo</title>
     <meta charset="UTF-8">
@@ -13,7 +14,8 @@
     <!-- Link to Theme: https://bootswatch.com/paper/ -->
 
     <!-- Chart.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script> -->
+    <script src="https://cdnjs.com/libraries/chart.js"></script>
 
     <!-- D3.js -->
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -129,12 +131,10 @@
                 <div class="panel-heading">2 Week Plan</div>
             <canvas id="chart1"></canvas>
             <script>
-                var dData = function () {
-                    return Math.round(Math.random() * 90) + 10
-                };
-
-                var barChartData = {
-                    labels: ["<?php echo $Day1s; ?>",
+                var ctx = document.getElementById("chart1").getContext("2d");
+                
+                var data = {
+                    labels: ["<?php echo $Day1; ?>",
                         "<?php echo nextDs($Day1); $DayOut = nextD($Day1); ?>",
                         "<?php echo nextDs($DayOut); $DayOut = nextD($DayOut); ?>",
                         "<?php echo nextDs($DayOut); $DayOut = nextD($DayOut); ?>",
@@ -144,33 +144,11 @@
                         "<?php echo nextDs($DayOut); $DayOut = nextD($DayOut); ?>",
                         "<?php echo nextDs($DayOut); $DayOut = nextD($DayOut); ?>", 
                         "<?php echo nextDs($DayOut); ?>"],
-                    datasets: [{
-                            fillColor: "rgba(0,60,100,1)",
-                            strokeColor: "black",
-                            data: [<?php echo callHours($Day1); ?>, 
-                                <?php $DayOut = nextD($Day1); echo callHours($DayOut); ?>,
-                                <?php $DayOut = nextD($DayOut); echo callHours($DayOut); ?>,
-                                <?php $DayOut = nextD($DayOut); echo callHours($DayOut); ?>,
-                                <?php $DayOut = nextD($DayOut); echo callHours($DayOut); ?>,
-                                <?php $DayOut = nextD($DayOut); echo callHours($DayOut); ?>,
-                                <?php $DayOut = nextD($DayOut); echo callHours($DayOut); ?>,
-                                <?php $DayOut = nextD($DayOut); echo callHours($DayOut); ?>,
-                                <?php $DayOut = nextD($DayOut); echo callHours($DayOut); ?>,
-                                <?php $DayOut = nextD($DayOut); echo callHours($DayOut); ?>]
-                        }]
-                }
-
-                var index = 11;
-                var ctx = document.getElementById("chart1").getContext("2d");
-                var barChartDemo = new Chart(ctx).Bar(barChartData, {
-                    responsive: true,
-                    barValueSpacing: 2
-                });
-//                setInterval(function () {
-//                    barChartDemo.removeData();
-//                    barChartDemo.addData([dData()], "dD " + index);
-//                    index++;
-//                }, 3000);
+                    datasets: [
+                        
+                    ]
+                };
+                new Chart(ctx).Bar(data,options);
             </script>
             </div>
         </div>
@@ -188,8 +166,10 @@
                     </div>
                     <div class="col-xs-6">
                         <h5>Today's Capacity</h5>
-                        <input type="number" min='0' name="" id="">
+                        <input type="number" min='0' name="tcap" id="tcap">
                     </div>
+                    <script>
+                    </script>
                     <div class="col-xs-6">
                         <h5>Spare Capacity Today</h5>
                         <p>Num</p>
@@ -201,7 +181,7 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">1 Month Outlook</div>
                     <div class="panel-body">
-                        <svg id="visualisation" height="300" width="500"></svg>
+                            <svg id="visualisation" height="300" width="500"></svg>
                         <script>
                     InitChart();
                     function InitChart() {
@@ -211,7 +191,7 @@
                         'y': "<?php echo callHours($Day1); ?>"
                       }, {
                         'x': "<?php echo $Day2; ?>",
-                        'y': 20
+                        'y': "<?php echo callHours($Day1); ?>"
                       }, {
                         'x': 40,
                         'y': 10
@@ -306,3 +286,4 @@
         </div>
     </div>
 </body>
+</html>
