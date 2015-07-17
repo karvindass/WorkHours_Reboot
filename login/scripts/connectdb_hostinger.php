@@ -1,13 +1,13 @@
 <?php
 
-$link = mysqli_connect('198.57.247.206:3306', 'karvinda_user', 'Shyf1FBvWU4q');
+$link = mysqli_connect('mysql.hostinger.vn', 'u919349616_wbusr', '9p9tgaHcDeGQ');
 if (!$link) {
     $output = 'Unable to connect to the database server.';
 //    echo $output;
     exit();
 }
-if (!mysqli_select_db($link, 'karvinda_workhours1')) {
-    $output = 'Could not find projct database.';
+if (!mysqli_select_db($link, 'u919349616_proj')) {
+    $output = 'Could not find project database.';
 //    echo $output;
     exit();
 }
