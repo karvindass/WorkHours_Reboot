@@ -15,7 +15,7 @@
 
     <!-- Chart.js -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script> -->
-    <script src="https://cdnjs.com/libraries/chart.js"></script>
+    <!-- <script src="https://cdnjs.com/libraries/chart.js"></script>   -->
 
     <!-- D3.js -->
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -129,10 +129,22 @@
                         "<?php echo nextDs($DayOut); $DayOut = nextD($DayOut); ?>", 
                         "<?php echo nextDs($DayOut); ?>"],
                     datasets: [
-                        
+                        {
+                        label: "Sum of Workhours committed",
+                        fillColor: "rgba(220,220,220,0.5)",
+                        strokeColor: "rgba(220,220,220,0.8)",
+                        highlightFill: "rgba(220,220,220,0.75)",
+                        highlightStroke: "rgba(220,220,220,1)",
+                        data: [1,2,3,4,5,6,7,8,9,10]
+                        }
                     ]
                 };
-                new Chart(ctx).Bar(data,options);
+                var BarChart1 = new Chart(ctx).Bar(data, {
+                    responsive: true
+                    }
+                    );
+                
+                });
             </script>
             </div>
         </div>
@@ -174,20 +186,20 @@
                         'x': "<?php echo $Day1; ?>",
                         'y': "<?php echo callHours($Day1); ?>"
                       }, {
-                        'x': "<?php echo $Day2; ?>",
-                        'y': "<?php echo callHours($Day1); ?>"
+                        'x': "<?php $DayOut = nextD($Day1); echo $DayOut ?>",
+                        'y': "<?php echo callHours($DayOut); ?>"
                       }, {
-                        'x': 40,
-                        'y': 10
+                        'x': "<?php $DayOut = nextD($DayOut); echo $DayOut ?>",
+                        'y': "<?php echo callHours($DayOut); ?>"
                       }, {
-                        'x': 60,
-                        'y': 40
+                        'x': "<?php $DayOut = nextD($DayOut); echo $DayOut ?>",
+                        'y': "<?php echo callHours($DayOut); ?>"
                       }, {
-                        'x': 80,
-                        'y': 5
+                        'x': "<?php $DayOut = nextD($DayOut); echo $DayOut ?>",
+                        'y': "<?php echo callHours($DayOut); ?>"
                       }, {
-                        'x': 100,
-                        'y': 60
+                        'x': "<?php $DayOut = nextD($DayOut); echo $DayOut ?>",
+                        'y': "<?php echo callHours($DayOut); ?>"
                       }];
 
                       var vis = d3.select('#visualisation'),
